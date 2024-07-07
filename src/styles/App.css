@@ -1,0 +1,81 @@
+/* Example Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+  font-family: 'Arial', sans-serif; /* Or any font you prefer */
+}
+.hamburgerIcon {
+  margin-top: 0.7rem;
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  justify-content: center;
+  margin-right: 0.7rem;
+  z-index: 11;
+  cursor: pointer;
+}
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: white; /* Changed to white */
+  margin: 6px auto;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+/* Additional Global Styles */ /* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
