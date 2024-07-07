@@ -4,43 +4,43 @@ import { Header } from './Header';
 import { Box, useBreakpointValue } from '@chakra-ui/react';
 import { Footer } from './Footer';
 
-// Import images
-import homeBgMobile from '../assets/images/home/background-home-mobile.jpg';
-import homeBgTablet from '../assets/images/home/background-home-tablet.jpg';
-import homeBgDesktop from '../assets/images/home/background-home-desktop.jpg';
-import destinationBgMobile from '../assets/images/destination/background-destination-mobile.jpg';
-import destinationBgTablet from '../assets/images/destination/background-destination-tablet.jpg';
-import destinationBgDesktop from '../assets/images/destination/background-destination-desktop.jpg';
-import crewBgMobile from '../assets/images/crew/background-crew-mobile.jpg';
-import crewBgTablet from '../assets/images/crew/background-crew-tablet.jpg';
-import crewBgDesktop from '../assets/images/crew/background-crew-desktop.jpg';
-import technologyBgMobile from '../assets/images/technology/background-technology-mobile.jpg';
-import technologyBgTablet from '../assets/images/technology/background-technology-tablet.jpg';
-import technologyBgDesktop from '../assets/images/technology/background-technology-desktop.jpg';
+// Define paths to the images in the public directory
+const homeBgMobile = `${import.meta.env.BASE_URL}assets/images/home/background-home-mobile.jpg`;
+const homeBgTablet = `${import.meta.env.BASE_URL}assets/images/home/background-home-tablet.jpg`;
+const homeBgDesktop = `${import.meta.env.BASE_URL}assets/images/home/background-home-desktop.jpg`;
+const destinationBgMobile = `${import.meta.env.BASE_URL}assets/images/destination/background-destination-mobile.jpg`;
+const destinationBgTablet = `${import.meta.env.BASE_URL}assets/images/destination/background-destination-tablet.jpg`;
+const destinationBgDesktop = `${import.meta.env.BASE_URL}assets/images/destination/background-destination-desktop.jpg`;
+const crewBgMobile = `${import.meta.env.BASE_URL}assets/images/crew/background-crew-mobile.jpg`;
+const crewBgTablet = `${import.meta.env.BASE_URL}assets/images/crew/background-crew-tablet.jpg`;
+const crewBgDesktop = `${import.meta.env.BASE_URL}assets/images/crew/background-crew-desktop.jpg`;
+const technologyBgMobile = `${import.meta.env.BASE_URL}assets/images/technology/background-technology-mobile.jpg`;
+const technologyBgTablet = `${import.meta.env.BASE_URL}assets/images/technology/background-technology-tablet.jpg`;
+const technologyBgDesktop = `${import.meta.env.BASE_URL}assets/images/technology/background-technology-desktop.jpg`;
 
 const backgroundImages: {
-  //here I need to add typescript types
+  // TypeScript types for breakpoint images
   mobile: { [key: string]: string };
   tablet: { [key: string]: string };
   desktop: { [key: string]: string };
 } = {
   mobile: {
     '/space-tourism-website/': homeBgMobile,
-    '/space-tourism-website/destination': destinationBgMobile,
-    '/space-tourism-website/crew': crewBgMobile,
-    '/space-tourism-website/technology': technologyBgMobile,
+    '/space-tourism-website/destination-page': destinationBgMobile,
+    '/space-tourism-website/crew-page': crewBgMobile,
+    '/space-tourism-website/technology-page': technologyBgMobile,
   },
   tablet: {
     '/space-tourism-website/': homeBgTablet,
-    '/space-tourism-website/destination': destinationBgTablet,
-    '/space-tourism-website/crew': crewBgTablet,
-    '/space-tourism-website/technology': technologyBgTablet,
+    '/space-tourism-website/destination-page': destinationBgTablet,
+    '/space-tourism-website/crew-page': crewBgTablet,
+    '/space-tourism-website/technology-page': technologyBgTablet,
   },
   desktop: {
     '/space-tourism-website/': homeBgDesktop,
-    '/space-tourism-website/destination': destinationBgDesktop,
-    '/space-tourism-website/crew': crewBgDesktop,
-    '/space-tourism-website/technology': technologyBgDesktop,
+    '/space-tourism-website/destination-page': destinationBgDesktop,
+    '/space-tourism-website/crew-page': crewBgDesktop,
+    '/space-tourism-website/technology-page': technologyBgDesktop,
   },
 };
 

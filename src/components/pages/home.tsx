@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Flex, Box, Heading, Text, Link, useBreakpointValue } from '@chakra-ui/react';
-import moonImage from '../../assets/images/destination/image-moon.png'; // Import the image
+const moonImage = `${import.meta.env.BASE_URL}assets/images/destination/image-moon.png`;
 
 export const Home: React.FC = () => {
   //defining hooks with typescript:
@@ -8,15 +9,7 @@ export const Home: React.FC = () => {
   const headingSize = useBreakpointValue({ base: '8rem', md: '10rem' }); // ✅ Change direction based on breakpoint
 
   return (
-    <Flex
-      width="80%"
-      direction={flexDirection}
-      alignItems="center"
-      justifyContent="space-around"
-      margin="0 auto"
-      mt="10rem"
-      mb="5rem"
-    >
+    <Flex width="80%" direction={flexDirection} alignItems="center" justifyContent="space-around" margin="0 auto" mt="10rem" mb="5rem">
       <Flex width="25rem" height="100%" direction="column" alignItems="center" justifyContent="center" mb="5rem">
         <Heading color="white" fontFamily="Barlow" fontSize="2xl" fontWeight="500">
           SO, YOU WANT TO TRAVEL TO
@@ -30,7 +23,8 @@ export const Home: React.FC = () => {
         </Text>
       </Flex>
       <Link
-        href="/space-tourism-website/destination-page"
+        as={RouterLink}
+        to="/space-tourism-website/destination-page"
         textDecoration="none" // Removes the underline
         _hover={{ textDecoration: 'none' }} // Ensures no underline on hover
       >
@@ -60,7 +54,7 @@ export const Home: React.FC = () => {
   );
 };
 
-//---NOTES about Typscript:
+//---NOTES about Typescript:
 /* the syntax useBreakpointValue<'column' | 'row'> is an example of TypeScript's typing system. 
 
 TypeScript Generics and Type Assertions

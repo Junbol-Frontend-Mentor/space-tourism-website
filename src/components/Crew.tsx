@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Flex, Box, Heading, Text, List, ListItem, Link, Divider, useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import moonImage from '../assets/images/destination/image-moon.png';
+const moonImage = `${import.meta.env.BASE_URL}assets/images/destination/image-moon.png`;
 
 interface Person {
   name: string;

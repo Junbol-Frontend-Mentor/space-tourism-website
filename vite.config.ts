@@ -11,9 +11,5 @@ export default defineConfig({
       },
     },
   },
-  base: '/space-tourism-website/', // Ensure this matches your project path
+  base: '/space-tourism-website/', // Ensuring this matches your project path
 });
-
-
-
-
