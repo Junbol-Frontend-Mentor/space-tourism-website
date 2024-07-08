@@ -5,20 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404</title>
     <script>
-      // JavaScript to redirect to the correct route
       window.onload = function () {
         var pathname = window.location.pathname;
         var base = '/space-tourism-website'; // Adjust this base to your project path
-        console.log('Initial pathname:', pathname); // Debugging line
+        console.log('Initial pathname:', pathname);
+
+        // Check if the current path starts with the base path
         if (pathname.startsWith(base)) {
+          // Retain the full path after the base
           var newPath = pathname.substring(base.length);
           if (!newPath.startsWith('/')) {
             newPath = '/' + newPath;
           }
-          console.log('Redirecting to:', base + newPath); // Debugging line
-          window.location.replace(base + newPath);
+          console.log('Redirecting to:', base + newPath);
+
+          // Introduce a slight delay to debounce the navigation
+          setTimeout(function () {
+            window.location.replace(base + newPath);
+          }, 100); // 100ms delay
         } else {
-          console.log('Redirecting to base:', base); // Debugging line
+          console.log('Redirecting to base:', base);
           window.location.replace(base);
         }
       };
@@ -28,6 +34,3 @@
     Redirecting...
   </body>
 </html>
-
-
-
