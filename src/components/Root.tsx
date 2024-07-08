@@ -55,9 +55,19 @@ export const Root: React.FC = () => {
   };
 
   return (
-    <Box width="100%" minHeight="100vh" backgroundImage={getBackgroundImage()} backgroundSize="cover">
+    <Box
+      width="100%"
+      minHeight="100vh"
+      backgroundImage={getBackgroundImage()}
+      backgroundSize="cover"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+    >
       <Header />
-      <Outlet /> {/* Placeholder for nested route components */}
+      <Box width="100%" maxWidth="1100px" margin="0 auto">
+        <Outlet /> {/* Placeholder for nested route components */}
+      </Box>
       <Footer /> {/* Footer added here */}
     </Box>
   );
