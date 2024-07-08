@@ -60,7 +60,7 @@ export const Crew: React.FC = () => {
             color="black"
             fontSize="3xl"
             borderRadius="50%"
-            border="5px solid hsl(200, 50%, 60%)"
+            border="5px solid hsl(220, 100%, 60%)"
             bg="black"
             mt="2rem"
             mb="3rem"
@@ -94,8 +94,8 @@ export const Crew: React.FC = () => {
                   <Link
                     onClick={() => handlePersonClick(person)}
                     _hover={{ textDecoration: 'none', color: 'hsl(220, 50%, 60%)' }}
-                    _focus={{ color: 'hsl(220, 50%, 60%)' }}
-                    style={{ color: selectedPerson === person ? 'hsl(220, 50%, 60%)' : 'inherit' }} // Active state styles
+                    _focus={{ color: 'hsl(220, 100%, 60%)' }}
+                    style={{ color: selectedPerson === person ? 'hsl(220, 100%, 60%)' : 'inherit' }} // Active state styles
                   >
                     <Text fontFamily="Barlow" display="flex" flexDirection="column" width="6.10rem" textAlign="center">
                       {person.name.toUpperCase()}
@@ -110,7 +110,7 @@ export const Crew: React.FC = () => {
               fontFamily="Bellefair"
               fontSize="3rem"
               fontWeight="500"
-              color="hsl(200, 50%, 60%)"
+              color="hsl(220, 100%, 60%)"
               textAlign="center"
               mt="1.5rem"
               initial={{ opacity: 0 }}
@@ -122,10 +122,10 @@ export const Crew: React.FC = () => {
             <Text fontFamily="Barlow" fontSize="1.5rem" fontWeight="300" color="white" textAlign="center" minHeight="100px">
               {selectedPerson.role.toUpperCase()}
             </Text>
-            <Divider width="20rem" border="1px solid hsl(200, 50%, 60%)" mx="auto" mb="2rem" />
+            <Divider width="20rem" border="1px solid hsl(220, 100%, 60%)" mx="auto" mb="2rem" />
             <Flex direction="column" alignItems="center" mb="0rem">
               <Text fontFamily="Barlow" fontSize="1.5rem" fontWeight="300" color="white" textAlign="center">
-                BIO
+                BIOoooo
               </Text>
               <Text fontFamily="Barlow" fontSize="1rem" fontWeight="400" color="white" textAlign="center">
                 {selectedPerson.bio}

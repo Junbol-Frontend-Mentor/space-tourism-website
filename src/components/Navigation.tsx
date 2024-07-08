@@ -51,7 +51,7 @@ export const Navigation: React.FC<Props> = ({ isMenuOpen, toggleMenu }) => {
       margin={margin}
       justifyContent={justifyContent} // 🚩 Center content on mobile
       zIndex="3"
-      backgroundColor="hsla(240, 30%, 20%, 0.7)"
+      backgroundColor="hsla(220, 100%, 20%, 0.7)"
       initial={{ y: '-10rem' }} // Initial position before the animation
       animate={{ y: isMenuOpen || !isMobile ? '1rem' : '-10rem' }} // 🚩 Animate to top or hide above the screen
       transition={{ type: 'tween', duration: 0.7 }} // Smooth transition
@@ -67,15 +67,14 @@ export const Navigation: React.FC<Props> = ({ isMenuOpen, toggleMenu }) => {
           textAlign="center"
           p="2"
           // border="1px solid hsl(0, 0%, 100%)"
-          // backgroundColor="hsla(240, 30%, 20%, 0.5)"
-          _hover={{ backgroundColor: 'hsla(200, 100%, 50%, 0.7)' }}
-          _focus={{ color: 'hsl(200, 100%, 50%)' }} // 🟢 Focus state styles
+          _hover={{ backgroundColor: 'hsl(220, 100%, 50%)' }}
+          _focus={{ color: 'hsl(220, 100%, 50%)' }} // 🟢 Focus state styles
           textDecoration="none"
           display="flex" // Ensure flex display to align text properly
           justifyContent="center" // Center align text
           alignItems="center"
           _activeLink={{
-            backgroundColor: 'hsla(200, 100%, 50%, 0.7)', // 🟢 Active state styles
+            backgroundColor: 'hsla(220, 100%, 50%, 0.7)', // 🟢 Active state styles
             color: 'white',
           }}
         >
