@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404</title>
     <script>
-      window.onload = function () {
-        var pathname = window.location.pathname;
-        var base = '/space-tourism-website'; // Adjust this base to your project path
-        console.log('Initial pathname:', pathname);
+        window.onload = function () {
+            var pathname = window.location.pathname;
+            var base = '/space-tourism-website'; // Adjust this base to your project path
+            console.log('Initial pathname:', pathname);
 
-        // Function to check if a URL exists
-        function checkURLExists(url, callback) {
-          fetch(url, { method: 'HEAD' })
-            .then(function (response) {
-              callback(response.ok);
-            })
-            .catch(function () {
-              callback(false);
-            });
-        }
-
-        // Check if the current path starts with the base path
-        if (pathname.startsWith(base)) {
-          // Retain the full path after the base
-          var newPath = pathname.substring(base.length);
-          if (!newPath.startsWith('/')) {
-            newPath = '/' + newPath;
-          }
-          var targetURL = base + newPath;
-          console.log('Checking URL:', targetURL);
-
-          // Check if the target URL exists
-          checkURLExists(targetURL, function (exists) {
-            if (exists) {
-              console.log('Redirecting to:', targetURL);
-              window.location.replace(targetURL);
-            } else {
-              console.log('Target URL does not exist. Redirecting to base:', base);
-              window.location.replace(base);
+            // Function to check if a URL exists
+            function checkURLExists(url, callback) {
+                fetch(url, { method: 'HEAD' })
+                    .then(function (response) {
+                        callback(response.ok);
+                    })
+                    .catch(function () {
+                        callback(false);
+                    });
             }
-          });
-        } else {
-          console.log('Redirecting to base:', base);
-          window.location.replace(base);
-        }
-      };
+
+            // Function to handle redirection
+            function handleRedirect() {
+                if (pathname.startsWith(base)) {
+                    // Retain the full path after the base
+                    var newPath = pathname.substring(base.length);
+                    if (!newPath.startsWith('/')) {
+                        newPath = '/' + newPath;
+                    }
+                    var targetURL = base + newPath;
+                    console.log('Checking URL:', targetURL);
+
+                    // Check if the target URL exists
+                    checkURLExists(targetURL, function (exists) {
+                        if (exists) {
+                            console.log('Redirecting to:', targetURL);
+                            window.location.replace(targetURL);
+                        } else {
+                            console.log('Target URL does not exist. Redirecting to base:', base);
+                            window.location.replace(base);
+                        }
+                    });
+                } else {
+                    console.log('Redirecting to base:', base);
+                    window.location.replace(base);
+                }
+            }
+
+            // Introduce a small delay to avoid immediate redirection
+            setTimeout(handleRedirect, 1000);
+        };
     </script>
-  </head>
-  <body>
+</head>
+<body>
     Redirecting...
-  </body>
+</body>
 </html>
+
