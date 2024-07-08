@@ -10,8 +10,9 @@
             var base = '/space-tourism-website'; // Adjust this base to your project path
             console.log('Initial pathname:', pathname);
 
+            // Check if the path starts with the base
             if (pathname.startsWith(base)) {
-                // Redirect to the same path but within the correct base
+                // Remove the base from the path
                 var newPath = pathname.substring(base.length);
                 if (!newPath.startsWith('/')) {
                     newPath = '/' + newPath;
@@ -20,7 +21,6 @@
                 console.log('Redirecting to:', targetURL);
                 window.location.replace(targetURL);
             } else {
-                // Redirect to the base if the path doesn't start with the base
                 console.log('Redirecting to base:', base);
                 window.location.replace(base);
             }
@@ -31,6 +31,8 @@
     Redirecting...
 </body>
 </html>
+
+
 
 
 
