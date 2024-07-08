@@ -11,6 +11,7 @@
         console.log('Initial pathname:', pathname);
         console.log('Base path:', base);
 
+        // Check if the path starts with the base
         if (pathname.startsWith(base)) {
           // Remove the base from the path
           var newPath = pathname.substring(base.length);
@@ -20,21 +21,14 @@
           var targetURL = base + newPath;
           console.log('Redirecting to:', targetURL);
 
-          // Check if the target URL exists
-          fetch(targetURL, { method: 'HEAD' })
-            .then((response) => {
-              if (response.ok) {
-                console.log('Page exists:', targetURL);
-                window.location.replace(targetURL);
-              } else {
-                console.log('Page does not exist. Redirecting to base:', base);
-                window.location.replace(base);
-              }
-            })
-            .catch(() => {
-              console.log('Error fetching the target URL. Redirecting to base:', base);
-              window.location.replace(base);
-            });
+          // Check if already redirected to avoid infinite loop
+          if (!sessionStorage.getItem('alreadyRedirected')) {
+            sessionStorage.setItem('alreadyRedirected', 'true');
+            window.location.replace(targetURL);
+          } else {
+            console.log('Already redirected once. Stopping to avoid infinite loop.');
+            sessionStorage.removeItem('alreadyRedirected');
+          }
         } else {
           console.log('Redirecting to base:', base);
           window.location.replace(base);
