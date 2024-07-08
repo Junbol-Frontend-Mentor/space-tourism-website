@@ -10,46 +10,20 @@
             var base = '/space-tourism-website'; // Adjust this base to your project path
             console.log('Initial pathname:', pathname);
 
-            // Function to check if a URL exists
-            function checkURLExists(url, callback) {
-                fetch(url, { method: 'HEAD' })
-                    .then(function (response) {
-                        callback(response.ok);
-                    })
-                    .catch(function () {
-                        callback(false);
-                    });
-            }
-
-            // Function to handle redirection
-            function handleRedirect() {
-                if (pathname.startsWith(base)) {
-                    // Retain the full path after the base
-                    var newPath = pathname.substring(base.length);
-                    if (!newPath.startsWith('/')) {
-                        newPath = '/' + newPath;
-                    }
-                    var targetURL = base + newPath;
-                    console.log('Checking URL:', targetURL);
-
-                    // Check if the target URL exists
-                    checkURLExists(targetURL, function (exists) {
-                        if (exists) {
-                            console.log('Redirecting to:', targetURL);
-                            window.location.replace(targetURL);
-                        } else {
-                            console.log('Target URL does not exist. Redirecting to base:', base);
-                            window.location.replace(base);
-                        }
-                    });
-                } else {
-                    console.log('Redirecting to base:', base);
-                    window.location.replace(base);
+            if (pathname.startsWith(base)) {
+                // Redirect to the same path but within the correct base
+                var newPath = pathname.substring(base.length);
+                if (!newPath.startsWith('/')) {
+                    newPath = '/' + newPath;
                 }
+                var targetURL = base + newPath;
+                console.log('Redirecting to:', targetURL);
+                window.location.replace(targetURL);
+            } else {
+                // Redirect to the base if the path doesn't start with the base
+                console.log('Redirecting to base:', base);
+                window.location.replace(base);
             }
-
-            // Introduce a small delay to avoid immediate redirection
-            setTimeout(handleRedirect, 1000);
         };
     </script>
 </head>
@@ -57,5 +31,7 @@
     Redirecting...
 </body>
 </html>
+
+
 
 
