@@ -71,9 +71,9 @@ export const Technology: React.FC = () => {
                   <ListItem key={technology.name}>
                     <Link
                       onClick={() => handleTechnologyClick(technology)}
-                      _hover={{ textDecoration: 'none', color: 'hsl(200, 50%, 60%)' }} // Hover state styles
-                      _focus={{ color: 'hsl(200, 50%, 60%)' }} // Focus state styles
-                      style={{ color: selectedTechnology === technology ? 'hsl(200, 50%, 60%)' : 'inherit' }} // Active state styles
+                      _hover={{ textDecoration: 'none', color: 'hsl(220, 100%, 60%)' }} // Hover state styles
+                      _focus={{ color: 'hsl(220, 50%, 60%)' }} // Focus state styles
+                      color={selectedTechnology === technology ? 'hsl(220, 100%, 60%)' : 'inherit'} // 🐞I had style instead of "color" before, for this Active state styles
                     >
                       <Text fontFamily="Barlow" display="flex" flexDirection="row" justifyContent="center" textAlign="center">
                         {technology.name.toUpperCase()}

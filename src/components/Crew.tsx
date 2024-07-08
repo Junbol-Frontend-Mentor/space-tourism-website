@@ -87,15 +87,15 @@ export const Crew: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: 'easeIn' }}
           ></MotionBox>
-          <Flex width="30rem" direction="column" justifyContent="center">
-            <List display="flex" width="27rem" justifyContent="space-between" color="white" mb="5rem" margin="0 auto">
+          <Flex width="27rem" direction="column" justifyContent="center">
+            <List display="flex" width="27rem" justifyContent="space-between" mb="5rem" margin="0 auto" color="white"> {/* 🟢 Moved color="white" to the List instead of ListItem */}
               {data.map((person) => (
                 <ListItem key={person.name} fontSize="0.8rem">
                   <Link
                     onClick={() => handlePersonClick(person)}
-                    _hover={{ textDecoration: 'none', color: 'hsl(220, 50%, 60%)' }}
+                    _hover={{ color: 'hsl(220, 100%, 60%)', textDecoration: 'none' }} // 🟢 Ensure no underline on hover
                     _focus={{ color: 'hsl(220, 100%, 60%)' }}
-                    style={{ color: selectedPerson === person ? 'hsl(220, 100%, 60%)' : 'inherit' }} // Active state styles
+                    color={selectedPerson === person ? 'hsl(220, 100%, 60%)' : 'inherit'} // 🟢 Active state styles
                   >
                     <Text fontFamily="Barlow" display="flex" flexDirection="column" width="6.10rem" textAlign="center">
                       {person.name.toUpperCase()}
@@ -106,9 +106,8 @@ export const Crew: React.FC = () => {
             </List>
 
             <MotionHeading
-              width="100%"
               fontFamily="Bellefair"
-              fontSize="3rem"
+              fontSize="2.8rem"
               fontWeight="500"
               color="hsl(220, 100%, 60%)"
               textAlign="center"
@@ -125,9 +124,9 @@ export const Crew: React.FC = () => {
             <Divider width="20rem" border="1px solid hsl(220, 100%, 60%)" mx="auto" mb="2rem" />
             <Flex direction="column" alignItems="center" mb="0rem">
               <Text fontFamily="Barlow" fontSize="1.5rem" fontWeight="300" color="white" textAlign="center">
-                BIOoooo
+                BIO
               </Text>
-              <Text fontFamily="Barlow" fontSize="1rem" fontWeight="400" color="white" textAlign="center">
+              <Text width="80%" fontFamily="Barlow" fontSize="1rem" fontWeight="400" color="white" textAlign="center">
                 {selectedPerson.bio}
               </Text>
             </Flex>
