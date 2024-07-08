@@ -9,16 +9,19 @@
             var pathname = window.location.pathname;
             var base = '/space-tourism-website'; // Adjust this base to your project path
             console.log('Initial pathname:', pathname);
+            console.log('Base path:', base);
 
             // Check if the path starts with the base
             if (pathname.startsWith(base)) {
                 // Remove the base from the path
                 var newPath = pathname.substring(base.length);
+                console.log('New path after removing base:', newPath);
+
                 if (!newPath.startsWith('/')) {
                     newPath = '/' + newPath;
                 }
                 var targetURL = base + newPath;
-                console.log('Redirecting to:', targetURL);
+                console.log('Final target URL:', targetURL);
                 window.location.replace(targetURL);
             } else {
                 console.log('Redirecting to base:', base);
@@ -31,6 +34,7 @@
     Redirecting...
 </body>
 </html>
+
 
 
 
