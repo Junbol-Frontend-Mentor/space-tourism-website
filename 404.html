@@ -9,14 +9,16 @@
       window.onload = function () {
         var pathname = window.location.pathname;
         var base = '/space-tourism-website'; // Adjust this base to your project path
+        console.log('Initial pathname:', pathname); // Debugging line
         if (pathname.startsWith(base)) {
-          // Retain the full path after the base
           var newPath = pathname.substring(base.length);
           if (!newPath.startsWith('/')) {
             newPath = '/' + newPath;
           }
+          console.log('Redirecting to:', base + newPath); // Debugging line
           window.location.replace(base + newPath);
         } else {
+          console.log('Redirecting to base:', base); // Debugging line
           window.location.replace(base);
         }
       };
@@ -26,5 +28,6 @@
     Redirecting...
   </body>
 </html>
+
 
 
