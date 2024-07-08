@@ -1,6 +1,6 @@
-# Frontend Mentor - Advice generator app solution
+# Frontend Mentor - Space tourism website solution
 
-This is a solution to the [Advice generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -21,7 +21,7 @@ This is a solution to the [Advice generator app challenge on Frontend Mentor](ht
 
 ### Screenshot
 
-![](./assets/images/screenshot.jpg)
+![](./public/assets/images/screenshot.jpg)
 
 ### Links
 
@@ -33,18 +33,21 @@ This is a solution to the [Advice generator app challenge on Frontend Mentor](ht
 ### 🛠 Built with
 
 - Semantic HTML5 markup 🧾
-- Sass(SCSS) Flexbox 🎨
-- BEM (Block.Element.Modifier)🧾
+- ChakraUI & Flexbox 🎨
 - Mobile-first workflow 📱
 - GIT/GitHub 🧾🌎
 - PowerShell (CLI) 🧾
-- Javascript 🤖🚀
+- Typescript & Javascript 🤖
+- React with Vite 🤖
+- NPM
 
 ### What I learned
 
-- Working with the Grid was a challenge. But gradually I am making progress. A good working grid is a combination of grid and flexbox settings.
+- Working with the Typescript for the first time was a challenge. But gradually I am making progress.
 
-- You need to grid area you containers not the items inside your containers.
+- GitHub pages and React Router are not really good friends.
+
+- I still couldn't resolved the reload issue. So first aid extra 404 code was added.
 
 ```
 
@@ -54,7 +57,7 @@ This is a solution to the [Advice generator app challenge on Frontend Mentor](ht
 
 ### Continued development
 
-I would like to continue studying responsive SCSS specially with Grid + Flexbox and CSS animation, transitions and FX like parallax.
+I would like to continue studying Typescript since that is we are heading to.
 
 ### Useful resources
 
