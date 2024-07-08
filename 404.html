@@ -15,20 +15,14 @@
         if (pathname.startsWith(base)) {
           // Remove the base from the path
           var newPath = pathname.substring(base.length);
+          console.log('New path after removing base:', newPath);
+
           if (!newPath.startsWith('/')) {
             newPath = '/' + newPath;
           }
           var targetURL = base + newPath;
-          console.log('Redirecting to:', targetURL);
-
-          // Check if already redirected to avoid infinite loop
-          if (!sessionStorage.getItem('alreadyRedirected')) {
-            sessionStorage.setItem('alreadyRedirected', 'true');
-            window.location.replace(targetURL);
-          } else {
-            console.log('Already redirected once. Stopping to avoid infinite loop.');
-            sessionStorage.removeItem('alreadyRedirected');
-          }
+          console.log('Final target URL:', targetURL);
+          window.location.replace(targetURL);
         } else {
           console.log('Redirecting to base:', base);
           window.location.replace(base);
