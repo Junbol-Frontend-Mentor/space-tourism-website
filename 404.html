@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404</title>
     <script>
-        window.onload = function () {
-            var pathname = window.location.pathname;
-            var base = '/space-tourism-website'; // Adjust this base to your project path
-            console.log('Initial pathname:', pathname);
-            console.log('Base path:', base);
+      window.onload = function () {
+        var pathname = window.location.pathname;
+        var base = '/space-tourism-website'; // Adjust this base to your project path
+        console.log('Initial pathname:', pathname);
+        console.log('Base path:', base);
 
-            // Check if the path starts with the base
-            if (pathname.startsWith(base)) {
-                // Remove the base from the path
-                var newPath = pathname.substring(base.length);
-                console.log('New path after removing base:', newPath);
+        // Check if the path starts with the base
+        if (pathname.startsWith(base)) {
+          // Remove the base from the path
+          var newPath = pathname.substring(base.length);
+          console.log('New path after removing base:', newPath);
 
-                if (!newPath.startsWith('/')) {
-                    newPath = '/' + newPath;
-                }
-                var targetURL = base + newPath;
-                console.log('Final target URL:', targetURL);
-                window.location.replace(targetURL);
-            } else {
-                console.log('Redirecting to base:', base);
-                window.location.replace(base);
-            }
-        };
+          if (!newPath.startsWith('/')) {
+            newPath = '/' + newPath;
+          }
+          var targetURL = base + newPath;
+          console.log('Final target URL:', targetURL);
+
+          // Redirect to the target URL
+          window.location.replace(targetURL);
+        } else {
+          console.log('Redirecting to base:', base);
+          window.location.replace(base);
+        }
+
+        // Introduce a small delay to avoid immediate redirection
+        setTimeout(function () {
+          if (window.location.pathname !== pathname) {
+            window.location.reload();
+          }
+        }, 2000); // Adjust the delay as needed
+      };
     </script>
-</head>
-<body>
+  </head>
+  <body>
     Redirecting...
-</body>
+  </body>
 </html>
-
-
-
-
-
-
-
