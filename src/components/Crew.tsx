@@ -93,9 +93,9 @@ export const Crew: React.FC = () => {
                 <ListItem key={person.name} fontSize="0.8rem">
                   <Link
                     onClick={() => handlePersonClick(person)}
-                    _hover={{ textDecoration: 'none', color: 'hsl(200, 50%, 60%)' }} // Hover state styles
-                    _focus={{ color: 'hsl(200, 50%, 60%)' }} // Focus state styles
-                    style={{ color: selectedPerson === person ? 'hsl(200, 50%, 60%)' : 'inherit' }} // Active state styles
+                    _hover={{ textDecoration: 'none', color: 'hsl(220, 50%, 60%)' }}
+                    _focus={{ color: 'hsl(220, 50%, 60%)' }}
+                    style={{ color: selectedPerson === person ? 'hsl(220, 50%, 60%)' : 'inherit' }} // Active state styles
                   >
                     <Text fontFamily="Barlow" display="flex" flexDirection="column" width="6.10rem" textAlign="center">
                       {person.name.toUpperCase()}
