@@ -9,20 +9,38 @@
         var pathname = window.location.pathname;
         var base = '/space-tourism-website'; // Adjust this base to your project path
         console.log('Initial pathname:', pathname);
-        console.log('Base path:', base);
 
-        // Check if the path starts with the base
+        // Function to check if a URL exists
+        function checkURLExists(url, callback) {
+          fetch(url, { method: 'HEAD' })
+            .then(function (response) {
+              callback(response.ok);
+            })
+            .catch(function () {
+              callback(false);
+            });
+        }
+
+        // Check if the current path starts with the base path
         if (pathname.startsWith(base)) {
-          // Remove the base from the path
+          // Retain the full path after the base
           var newPath = pathname.substring(base.length);
-          console.log('New path after removing base:', newPath);
-
           if (!newPath.startsWith('/')) {
             newPath = '/' + newPath;
           }
           var targetURL = base + newPath;
-          console.log('Final target URL:', targetURL);
-          window.location.replace(targetURL);
+          console.log('Checking URL:', targetURL);
+
+          // Check if the target URL exists
+          checkURLExists(targetURL, function (exists) {
+            if (exists) {
+              console.log('Redirecting to:', targetURL);
+              window.location.replace(targetURL);
+            } else {
+              console.log('Target URL does not exist. Redirecting to base:', base);
+              window.location.replace(base);
+            }
+          });
         } else {
           console.log('Redirecting to base:', base);
           window.location.replace(base);
