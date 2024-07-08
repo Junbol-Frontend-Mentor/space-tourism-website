@@ -23,19 +23,27 @@
           var targetURL = base + newPath;
           console.log('Final target URL:', targetURL);
 
-          // Redirect to the target URL
-          window.location.replace(targetURL);
+          // Try to navigate to the target URL
+          fetch(targetURL)
+            .then((response) => {
+              if (response.ok) {
+                console.log('Redirecting to:', targetURL);
+                window.location.replace(targetURL);
+              } else {
+                console.log('Target URL does not exist. Redirecting to base:', base);
+                window.history.replaceState(null, '', base + newPath);
+                window.location.reload();
+              }
+            })
+            .catch(() => {
+              console.log('Target URL does not exist. Redirecting to base:', base);
+              window.history.replaceState(null, '', base + newPath);
+              window.location.reload();
+            });
         } else {
           console.log('Redirecting to base:', base);
           window.location.replace(base);
         }
-
-        // Introduce a small delay to avoid immediate redirection
-        setTimeout(function () {
-          if (window.location.pathname !== pathname) {
-            window.location.reload();
-          }
-        }, 2000); // Adjust the delay as needed
       };
     </script>
   </head>
