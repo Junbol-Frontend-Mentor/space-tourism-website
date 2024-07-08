@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404</title>
     <script>
+      // JavaScript to redirect to the correct route
       window.onload = function () {
         var pathname = window.location.pathname;
         var base = '/space-tourism-website'; // Adjust this base to your project path
         if (pathname.startsWith(base)) {
-          var newPath = pathname.replace(base, '');
+          // Retain the full path after the base
+          var newPath = pathname.substring(base.length);
+          if (!newPath.startsWith('/')) {
+            newPath = '/' + newPath;
+          }
           window.location.replace(base + newPath);
         } else {
           window.location.replace(base);
@@ -21,4 +26,5 @@
     Redirecting...
   </body>
 </html>
+
 
