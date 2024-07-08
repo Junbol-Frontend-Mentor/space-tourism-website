@@ -11,50 +11,34 @@
         console.log('Initial pathname:', pathname);
         console.log('Base path:', base);
 
-        // Function to handle redirection
-        function handleRedirect() {
-          if (pathname.startsWith(base)) {
-            // Remove the base from the path
-            var newPath = pathname.substring(base.length);
-            if (!newPath.startsWith('/')) {
-              newPath = '/' + newPath;
-            }
-            var targetURL = base + newPath;
-            console.log('Redirecting to:', targetURL);
-
-            // Check if the target URL exists
-            fetch(targetURL, { method: 'HEAD' })
-              .then((response) => {
-                if (response.ok) {
-                  console.log('Page exists:', targetURL);
-                  window.location.replace(targetURL);
-                } else {
-                  console.log('Page does not exist. Reloading base URL:', base);
-                  if (!sessionStorage.getItem('redirected')) {
-                    sessionStorage.setItem('redirected', 'true');
-                    window.location.replace(base);
-                  } else {
-                    console.log('Already redirected once. Stopping to avoid infinite loop.');
-                  }
-                }
-              })
-              .catch(() => {
-                console.log('Error fetching the target URL. Redirecting to base:', base);
-                if (!sessionStorage.getItem('redirected')) {
-                  sessionStorage.setItem('redirected', 'true');
-                  window.location.replace(base);
-                } else {
-                  console.log('Already redirected once. Stopping to avoid infinite loop.');
-                }
-              });
-          } else {
-            console.log('Redirecting to base:', base);
-            window.location.replace(base);
+        if (pathname.startsWith(base)) {
+          // Remove the base from the path
+          var newPath = pathname.substring(base.length);
+          if (!newPath.startsWith('/')) {
+            newPath = '/' + newPath;
           }
-        }
+          var targetURL = base + newPath;
+          console.log('Redirecting to:', targetURL);
 
-        // Introduce a small delay to avoid immediate redirection
-        setTimeout(handleRedirect, 1000);
+          // Check if the target URL exists
+          fetch(targetURL, { method: 'HEAD' })
+            .then((response) => {
+              if (response.ok) {
+                console.log('Page exists:', targetURL);
+                window.location.replace(targetURL);
+              } else {
+                console.log('Page does not exist. Redirecting to base:', base);
+                window.location.replace(base);
+              }
+            })
+            .catch(() => {
+              console.log('Error fetching the target URL. Redirecting to base:', base);
+              window.location.replace(base);
+            });
+        } else {
+          console.log('Redirecting to base:', base);
+          window.location.replace(base);
+        }
       };
     </script>
   </head>
