@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Flex, Box, Heading, Text, List, ListItem, Link, Divider, useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-const moonImage = `${import.meta.env.BASE_URL}assets/images/destination/image-moon.png`;
+const moonImage = `${import.meta.env.BASE_URL}assets/images/technology/image-launch-vehicle-portrait.jpg`;
 
 interface Person {
   name: string;
@@ -88,7 +88,9 @@ export const Crew: React.FC = () => {
             transition={{ duration: 1, ease: 'easeIn' }}
           ></MotionBox>
           <Flex width="27rem" direction="column" justifyContent="center">
-            <List display="flex" width="27rem" justifyContent="space-between" mb="5rem" margin="0 auto" color="white"> {/* 🟢 Moved color="white" to the List instead of ListItem */}
+            <List display="flex" width="27rem" justifyContent="space-between" mb="5rem" margin="0 auto" color="white">
+              {' '}
+              {/* 🟢 Moved color="white" to the List instead of ListItem */}
               {data.map((person) => (
                 <ListItem key={person.name} fontSize="0.8rem">
                   <Link
