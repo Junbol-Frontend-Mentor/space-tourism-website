@@ -39,7 +39,9 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 - PowerShell (CLI) 🧾
 - Typescript & Javascript 🤖
 - React with Vite 🤖
-- NPM
+- Node & NPM
+- Emotion 🤪
+- Vitest
 
 ### What I learned
 
@@ -48,6 +50,8 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 - GitHub pages and React Router are not really good friends.
 
 - I still couldn't resolved the reload issue. So first aid extra 404 code was added.
+
+- First experience testing React and Typescript with Vitest = a nightmare 🤣
 
 ```
 
