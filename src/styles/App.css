@@ -37,6 +37,16 @@ body {
   transform: translate(0, -11px) rotate(45deg);
 }
 
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
 /* Additional Global Styles */ /* #root {
   max-width: 1280px;
   margin: 0 auto;

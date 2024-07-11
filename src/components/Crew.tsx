@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom'; // 🚩 useNavigate and useParams
 import { Flex, Box, Heading, Text, List, ListItem, Link, Divider, useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-const moonImage = `${import.meta.env.BASE_URL}assets/images/technology/image-launch-vehicle-portrait.jpg`;
+
+const moonImage = `${import.meta.env.BASE_URL}assets/images/destination/image-moon.png`;
 
 interface Person {
   name: string;
@@ -12,34 +14,46 @@ interface Person {
   bio: string;
 }
 
-export const Crew: React.FC = () => {
-  const [data, setData] = useState<Person[]>([]);
-  const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
+interface CrewProps {
+  personName?: string;
+}
 
+export const Crew: React.FC<CrewProps> = ({ personName }) => {
+  // 🚩 Add personName as a prop
+  const [data, setData] = useState<Person[]>([]); //❓
+  const [selectedPerson, setSelectedPerson] = useState<Person | null>(null); //❓
+  const navigate = useNavigate();
   const width = useBreakpointValue({ base: '100%', md: '1100px' }) || '100%';
   const flexDirection = useBreakpointValue<'column' | 'row'>({ base: 'column', md: 'row' }) || 'column';
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}data.json`); // Corrected path for GitHub Pages
+        const response = await fetch(`${import.meta.env.BASE_URL}data.json`);
 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const jsonData = await response.json();
         setData(jsonData.crew);
-        setSelectedPerson(jsonData.crew[0]); // Set default satellite
+
+        if (personName) {
+          const person = jsonData.crew.find((p: Person) => p.name.toLowerCase().replace(/\s+/g, '-') === personName.toLowerCase()); //❓find((p: Person)
+          setSelectedPerson(person);
+        } else {
+          setSelectedPerson(jsonData.crew[0]);
+        }
       } catch (error) {
         console.error('Error:', error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [personName]);
 
   const handlePersonClick = (person: Person) => {
     setSelectedPerson(person);
+    navigate(`/space-tourism-website/crew-page/${person.name.toLowerCase().replace(/\s+/g, '-')}`);
   };
 
   const MotionBox = motion(Box);
@@ -89,15 +103,13 @@ export const Crew: React.FC = () => {
           ></MotionBox>
           <Flex width="27rem" direction="column" justifyContent="center">
             <List display="flex" width="27rem" justifyContent="space-between" mb="5rem" margin="0 auto" color="white">
-              {' '}
-              {/* 🟢 Moved color="white" to the List instead of ListItem */}
               {data.map((person) => (
                 <ListItem key={person.name} fontSize="0.8rem">
                   <Link
                     onClick={() => handlePersonClick(person)}
-                    _hover={{ color: 'hsl(220, 100%, 60%)', textDecoration: 'none' }} // 🟢 Ensure no underline on hover
+                    _hover={{ color: 'hsl(220, 100%, 60%)', textDecoration: 'none' }} // 🚩 Ensure no underline on hover
                     _focus={{ color: 'hsl(220, 100%, 60%)' }}
-                    color={selectedPerson === person ? 'hsl(220, 100%, 60%)' : 'inherit'} // 🟢 Active state styles
+                    color={selectedPerson === person ? 'hsl(220, 100%, 60%)' : 'inherit'} // 🚩 Active state styles
                   >
                     <Text fontFamily="Barlow" display="flex" flexDirection="column" width="6.10rem" textAlign="center">
                       {person.name.toUpperCase()}

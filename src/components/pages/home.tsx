@@ -4,9 +4,8 @@ import { Flex, Box, Heading, Text, Link, useBreakpointValue } from '@chakra-ui/r
 const moonImage = `${import.meta.env.BASE_URL}assets/images/destination/image-moon.png`;
 
 export const Home: React.FC = () => {
-  //defining hooks with typescript:
-  const flexDirection = useBreakpointValue<'column' | 'row'>({ base: 'column', md: 'row' }); // ✅ Ensure the correct type // Change direction based on breakpoint
-  const headingSize = useBreakpointValue({ base: '8rem', md: '10rem' }); // ✅ Change direction based on breakpoint
+  const flexDirection = useBreakpointValue<'column' | 'row'>({ base: 'column', md: 'row' }); // 🚩 Ensure the correct type
+  const headingSize = useBreakpointValue({ base: '8rem', md: '10rem' }); // 🚩 Change heading size based on breakpoint
 
   return (
     <Flex width="80%" direction={flexDirection} alignItems="center" justifyContent="space-around" margin="0 auto" mt="10rem" mb="5rem">
@@ -24,7 +23,7 @@ export const Home: React.FC = () => {
       </Flex>
       <Link
         as={RouterLink}
-        to="/space-tourism-website/destination-page"
+        to="/space-tourism-website/destination-page/moon" // 🚩 Updated link to include specific satellite (e.g., moon)
         textDecoration="none" // Removes the underline
         _hover={{ textDecoration: 'none' }} // Ensures no underline on hover
       >
