@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'; // 🚩 Import useParams
 import { Satellite } from '../Satellite';
 
 export const DestinationPage: React.FC = () => {
-  const { satelliteName } = useParams<{ satelliteName: string }>(); // 🚩 Get the satelliteName parameter
+  const { satelliteName } = useParams<{ satelliteName: string }>(); // 🚩 the satelliteName parameter is obtained from the URL using useParams.
   const width = useBreakpointValue({ base: '100%', md: '1100px' }) || '100%';
   const flexDirection = useBreakpointValue<'column' | 'row'>({ base: 'column', md: 'row' }) || 'column';
 
@@ -18,7 +18,7 @@ export const DestinationPage: React.FC = () => {
           DESTINATION
         </Heading>
       </Flex>
-      <Satellite satelliteName={satelliteName} /> {/* 🚩 Pass the satelliteName to the Satellite component */}
+      <Satellite satelliteName={satelliteName} /> {/* 🚩 Pass the satelliteName prop to the Satellite component. This is prop drilling */}
     </Flex>
   );
 };

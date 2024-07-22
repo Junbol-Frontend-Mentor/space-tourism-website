@@ -47,11 +47,11 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 
 - Working with the Typescript for the first time was a challenge. But gradually I am making progress.
 
-- GitHub pages and React Router are not really good friends.
-
-- I still couldn't resolved the reload issue. So first aid extra 404 code was added.
+- GitHub pages and React Router are not really good friends.So, the solution for this was the use of HashRouter: import { HashRouter as Router } from 'react-router-dom'; // Import HashRouter
 
 - First experience testing React and Typescript with Vitest = a nightmare 🤣
+
+- I always want to a bit of excitement/entertainment to my projects so this time I raised my own bar and added 3d animation to the satellites: programming and 3d modeling and animations is what I feel really happy working with.
 
 ```
 
