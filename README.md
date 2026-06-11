@@ -34,6 +34,7 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 
 - Semantic HTML5 markup 🧾
 - ChakraUI & Flexbox 🎨
+- Framer Motion (fade-in animations) 🎬
 - Mobile-first workflow 📱
 - GIT/GitHub 🧾🌎
 - PowerShell (CLI) 🧾
