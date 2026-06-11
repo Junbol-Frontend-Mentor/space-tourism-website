@@ -44,6 +44,17 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 - Emotion 🤪
 - Vitest
 
+### 🪐 3D Planet Animation Pipeline
+
+The rotating planets are not Three.js or CSS tricks — they are looping `.webm` video files embedded via a React `<video>` tag inside `Satellite.tsx`.
+
+**Pipeline:**
+1. **Autodesk 3ds Max** — modelled the planets (Moon, Mars, Europa, Titan) with high-res textures and realistic lighting
+2. **Adobe After Effects** — animated the 360° planet rotation
+3. **Fnord WebM Plugin** (fnord.com) — exported the animations as lightweight `.webm` video files directly from After Effects via Adobe Media Encoder
+4. **React `<video>` tag** — embedded in `Satellite.tsx` as a looping, muted, autoplay video
+5. **Framer Motion** — added fade-in effect (`opacity: 0 → 1`) when switching between destinations
+
 ### What I learned
 
 - Working with the Typescript for the first time was a challenge. But gradually I am making progress.
@@ -52,7 +63,7 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 
 - First experience testing React and Typescript with Vitest = a nightmare 🤣
 
-- I always want to a bit of excitement/entertainment to my projects so this time I raised my own bar and added 3d animation to the satellites: programming and 3d modeling and animations is what I feel really happy working with.
+- I always want to add a bit of excitement/entertainment to my projects so this time I raised my own bar and added 3D animation to the planets. The trick: model them in 3ds Max, animate the rotation in After Effects, export as `.webm` with the Fnord plugin, and embed as a looping `<video>` in React. It looks like Three.js but it's just a video file — very lightweight and visually impressive. Programming + 3D modeling + animation is what makes me truly happy. 🚀
 
 ```
 
